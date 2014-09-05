@@ -55,11 +55,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = HTML::TagTree
 NAME_SYM = HTML_TagTree
-VERSION = v1.00
+VERSION = v1.03
 VERSION_MACRO = VERSION
-VERSION_SYM = v1_00
+VERSION_SYM = v1_03
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = v1.00
+XS_VERSION = v1.03
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -184,7 +184,8 @@ PERL_ARCHIVE       =
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = lib/HTML/TagTree.pm \
+TO_INST_PM = lib/.DS_Store \
+	lib/HTML/TagTree.pm \
 	lib/test_destroy.pl \
 	lib/test_destroy.pl.log \
 	lib/test_get_html_text.pl \
@@ -198,6 +199,8 @@ PM_TO_BLIB = lib/HTML/TagTree.pm \
 	blib/lib/test_destroy.pl.log \
 	lib/test_destroy.pl \
 	blib/lib/test_destroy.pl \
+	lib/.DS_Store \
+	blib/lib/.DS_Store \
 	lib/test_get_html_text.pl \
 	blib/lib/test_get_html_text.pl
 
@@ -268,7 +271,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = HTML-TagTree
-DISTVNAME = HTML-TagTree-v1.00
+DISTVNAME = HTML-TagTree-v1.03
 
 
 # --- MakeMaker macro section:
@@ -495,7 +498,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
 	$(NOECHO) $(ECHO) '--- #YAML:1.0' > META_new.yml
 	$(NOECHO) $(ECHO) 'name:               HTML-TagTree' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version:            v1.00' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version:            v1.03' >> META_new.yml
 	$(NOECHO) $(ECHO) 'abstract:           lib/HTML/TagTree.pm' >> META_new.yml
 	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - daniel debrito <ddebrito@gmail.com>' >> META_new.yml
@@ -804,7 +807,7 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="v1.00">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="v1.03">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>lib/HTML/TagTree.pm</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>daniel debrito &lt;ddebrito@gmail.com&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
@@ -822,6 +825,7 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  lib/test_stuff.pl blib/lib/test_stuff.pl \
 	  lib/test_destroy.pl.log blib/lib/test_destroy.pl.log \
 	  lib/test_destroy.pl blib/lib/test_destroy.pl \
+	  lib/.DS_Store blib/lib/.DS_Store \
 	  lib/test_get_html_text.pl blib/lib/test_get_html_text.pl 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
